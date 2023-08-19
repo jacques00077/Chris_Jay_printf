@@ -16,5 +16,5 @@ int putssss(char *c)
 			pchar(c[count]);
 		}
 	}
-	return count;
+	return (count);
 }
