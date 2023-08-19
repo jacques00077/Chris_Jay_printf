@@ -12,6 +12,11 @@ int _printf(const char *format, ...)
 
 	va_list lists;
 
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+	{
+		return (-1);
+	}
+
 	va_start(lists, format);
 
 	for (x = 0; format[x] != '\0'; x++)
