@@ -1,27 +1,34 @@
 #include "main.h"
 
 /**
- * determine_size - Determines the size based on format specifier
- * @format: Format string containing the specifier
- * @index: Index of the current character in the format string
+ * Calculates the size required for type casting based on the format specifier.
  *
- * Returns: Size identifier corresponding to the specifier.
+ * @param format Formatted string in which to print the arguments.
+ * @param i List of arguments to be printed.
+ * @return Size for type casting.
  */
-int determine_size(const char *format, int *index) {
-    int current_index = *index + 1;
-    int size_identifier = 0;
+int get_size(const char *format, int *i)
+{
+    int curr_i = *i + 1;
+    int size = 0;
 
-    if (format[current_index] == 'l') {
-        size_identifier = S_LONG;
-    } else if (format[current_index] == 'h') {
-        size_identifier = S_SHORT;
+    if (format[curr_i] == 'l')
+    {
+        size = S_LONG;
+    }
+    else if (format[curr_i] == 'h')
+    {
+        size = S_SHORT;
     }
 
-    if (size_identifier == 0) {
-        *index = current_index - 1;
-    } else {
-        *index = current_index;
+    if (size == 0)
+    {
+        *i = curr_i - 1;
+    }
+    else
+    {
+        *i = curr_i;
     }
 
-    return size_identifier;
+    return size;
 }
